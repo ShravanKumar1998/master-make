@@ -1,6 +1,7 @@
 #include <stdio.h>
 
+extern const char msg[];
 void main() {
-    printf("Hello Shravan. \r\n");
+    printf("Hello %s \r\n", msg);
     return;
 }

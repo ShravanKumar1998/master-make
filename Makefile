@@ -1,11 +1,14 @@
-C_FILES = main.c
-CC = gcc 
-run: build
-	./main.o
+OBJ_FILES = main.o msg.o
+CC = gcc
 
-build: $(C_FILES)
-	$(CC) -c $(C_FILES) -o main.o
+run: output
+	./output
+
+output: $(OBJ_FILES)
+	$(CC) $(OBJ_FILES) -o output
+
+%.o: %.c
+	$(CC) -c $^
 
 clean:
-	rm -r *.o
-
+	rm -rf *.o output
