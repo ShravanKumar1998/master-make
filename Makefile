@@ -1,9 +1,10 @@
 SRC_FILES = $(shell find -iname "*.c")
 OBJ_FILES = $(SRC_FILES:%.c=%.o)
-INCLUDE = -I./inc
+INCLUDE = $(shell find -iname "*.h" -exec dirname {} \; | sed 's/^./-I./g' | xargs)
+
 CC = gcc
 
-# $(info $(OBJ_FILES) output)
+$(info $(OBJ_FILES), $(INCLUDE))
 all: output
 	./$<
 
