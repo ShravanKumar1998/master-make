@@ -1,14 +1,16 @@
-OBJ_FILES = main.o msg.o
+SRC_FILES = $(shell find -iname "*.c")
+OBJ_FILES = $(SRC_FILES:%.c=%.o)
 CC = gcc
 
-run: output
-	./output
+# $(info $(OBJ_FILES) output)
+all: output
+	./$<
 
 output: $(OBJ_FILES)
-	$(CC) $(OBJ_FILES) -o output
+	$(CC) $(OBJ_FILES) -o $@
 
 %.o: %.c
-	$(CC) -c $^
+	$(CC) -c $^ -o $@
 
 clean:
-	rm -rf *.o output
+	rm -rf $(OBJ_FILES) output
