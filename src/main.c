@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include "../inc/sample.h"
+#include <sample.h>
 
 extern const char msg[];
 void main() {
-    printf("Hello %s \r\n", msg);
+    printf("Hello %s : %d \r\n", msg, TEST);
     return;
 }

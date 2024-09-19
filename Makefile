@@ -1,5 +1,6 @@
 SRC_FILES = $(shell find -iname "*.c")
 OBJ_FILES = $(SRC_FILES:%.c=%.o)
+INCLUDE = -I./inc
 CC = gcc
 
 # $(info $(OBJ_FILES) output)
@@ -10,7 +11,7 @@ output: $(OBJ_FILES)
 	$(CC) $(OBJ_FILES) -o $@
 
 %.o: %.c
-	$(CC) -c $^ -o $@
+	$(CC) $(INCLUDE) -c $^ -o $@
 
 clean:
 	rm -rf $(OBJ_FILES) output
